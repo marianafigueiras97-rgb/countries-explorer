@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="App to explore countries" />
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="src/index.js" defer></script>
+    <title>Countries Explorer</title>
+  </head>
+  <body>
+    <header>
+      <h1>Countries Explorer</h1>
+    </header>
+    <div class="toolbar">
+      <label class="search">
+        <span>Search Countries</span>
+        <input type="search" id="searchInput" placeholder="Type names" />
+        <button id="searchBtn">Search</button>
+      </label>
+
+      <label>
+        <span class="sort">Sort Countries</span>
+        <button id="sortFromAZ">Order A-Z</button>
+        <button id="sortByPopulation">By population</button>
+        </select>
+      </label>
+
+      <label>
+        <span>Filter by Continent</span>
+        <select name="filter" id="filter">
+          <option value="Africa">Africa</option>
+          <option value="Asia">Asia</option>
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
+          <option value="Antarctica">Antarctica</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </label>
+    </div>
+
+    <main>
+      <div class="countriesCardsContainer" id="countriesCardsContainer"></div>
+    </main>
+    <footer>
+      <p>Countries explorer - 2026</p>
+    </footer>
+  </body>
+</html>
