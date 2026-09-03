@@ -17,7 +17,6 @@ try{
 }
 };
   
-
 const renderCountries = (countriesToRender) =>{
   const container = document.querySelector("#countriesCardsContainer");
 
@@ -61,13 +60,7 @@ const renderCountryCards = (data) => {
     `);
 };
 
-
-const sortByPopulation = () =>{
-  const sortedCountries = [...countries].sort((a,b) => b.population - a.population);
-
-  renderCountries(sortedCountries);
-  }
-
+// ORDER BY A-Z
 const sortFromAZ = () => {
   const sortedCountries = [...countries].sort((a, b) =>
     a.names.common.localeCompare(b.names.common)
@@ -81,9 +74,44 @@ const sortAZInput = document
 
 sortAZInput.addEventListener("click",sortFromAZ);
 
+//ORDER BY POPULATION
+
+const sortByPopulation = () =>{
+  const sortedCountries = [...countries].sort((a,b) => b.population - a.population);
+
+  renderCountries(sortedCountries);
+  }
+
 const sortByPopulationInput = document
 .querySelector("#sortByPopulation");
 
 sortByPopulationInput.addEventListener("click", sortByPopulation);
 
+// SEARCH
+const searchInput = document
+.querySelector("#searchInput");
+
+
+searchInput.addEventListener("input", (e) =>{
+  const text = e.target.value.toLowerCase();
+
+  const filteredCountries = countries.filter(country =>
+    country.names.common.toLowerCase().includes(text)
+  );
+
+  renderCountries(filteredCountries);
+});
+
+// FILTER BY CONTINENTS
+
+const filter = document.querySelector("#filter");
+
+filter.addEventListener("change", (e)=>{
+  const selectedContinent = e.target.value;
+
+  const filteredCountries = countries.filter(country =>
+    country.continents.includes(selectedContinent)
+  );
+  renderCountries(filteredCountries);
+});
 getCountries();
