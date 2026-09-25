@@ -41,6 +41,7 @@ body {
 
 h1 {
   margin-bottom: var(--spacing);
+  margin-top: var(--spacing);
 }
 
 button, input {

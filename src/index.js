@@ -30,6 +30,7 @@ const renderCountries = (countriesToRender) =>{
   const population = country.population.toLocaleString('es-ES');
 
   const countryData = {
+    code: country.codes.alpha_2,
     name: country.names.common,
     flag: country.flag.url_svg,
     capital: capitals,
@@ -46,7 +47,7 @@ const renderCountryCards = (data) => {
   const container = document.querySelector("#countriesCardsContainer")
 
   container.insertAdjacentHTML("beforeend",`
-    <div class="countryCard">
+    <div class="countryCard" data-code="${data.code}">
     <img src="${data.flag}" alt="flag of ${data.name}"/>
     <h3>${data.name}</h3>
       <div class="countryInfo">
@@ -114,4 +115,21 @@ filter.addEventListener("change", (e)=>{
   );
   renderCountries(filteredCountries);
 });
+
+// VIEW CARD DETAIL 
+const container = document.querySelector("#countriesCardsContainer");
+
+container.addEventListener("click", (e) => {
+
+    const card = e.target.closest(".countryCard");
+
+    if (!card) return;
+
+    const code = card.dataset.code;
+
+    window.location.href = `country-detail.html?code=${code}`;
+});
+
+const card = document.querySelector(".countryCard");
 getCountries();
+
