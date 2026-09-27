@@ -32,7 +32,7 @@ const renderCountries = (countriesToRender) =>{
   const countryData = {
     code: country.codes.alpha_2,
     name: country.names.common,
-    flag: country.flag.url_svg,
+    flag: country.flag.url_png,
     capital: capitals,
     population: population,
     languages: languages,
