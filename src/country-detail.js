@@ -7,7 +7,7 @@ const getCountryDetail = async () => {
             `https://api.restcountries.com/countries/v5/codes.alpha_2/${code}`,{
                 
                 headers: {
-                    Authorization:"Bearer rc_live_ae4073cca92641959be0ec259869fe66"
+                    Authorization:"Bearer rc_live_e438dd8712824680ac8ca57af0301b5f"
                 }
             }
         );
