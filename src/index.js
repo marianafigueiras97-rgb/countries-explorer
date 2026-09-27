@@ -126,6 +126,7 @@ container.addEventListener("click", (e) => {
     if (!card) return;
 
     const code = card.dataset.code;
+    console.log(code);
 
     window.location.href = `country-detail.html?code=${code}`;
 });
